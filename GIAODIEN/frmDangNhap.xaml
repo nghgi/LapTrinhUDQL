@@ -1,0 +1,32 @@
+﻿<Window x:Class="GIAODIEN.frmDangNhap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GIAODIEN"
+        mc:Ignorable="d"
+        Title="frmDangNhap" Height="200" Width="250">
+    <Grid Grid.RowSpan="20" Background="#d4d0c8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Text="loc" x:Name="tbTenDangNhap" Grid.Row="1" Width="150" Height="20"/>
+        <PasswordBox  x:Name="tbMatKhau" Grid.Row="2" Width="150" Height="20" PasswordChar="*" Password="abc" />
+
+        <Grid Grid.Row="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="bDangNhap" Content="Dang nhap" Grid.Column="0" Width="75" Height="20" HorizontalAlignment="Right" Margin="10" FontSize="10" Click="bDangNhap_Click"/>
+            <Button x:Name="bThoat" Content="Thoat" Grid.Column="1" Width="75" Height="20" HorizontalAlignment="Left" Margin="10" FontSize="10" Click="bThoat_Click"/>
+
+        </Grid>
+    </Grid>
+</Window>
