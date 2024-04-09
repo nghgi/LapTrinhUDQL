@@ -7,7 +7,7 @@ CREATE TABLE KhuVuc (
     Ten NVARCHAR(100),
     GhiChu NVARCHAR(MAX)
 );
-DROP TABLE SANPHAM
+
 -- Tạo bảng SanPham
 CREATE TABLE SanPham (
 	MaSP NVARCHAR(100) PRIMARY KEY,
@@ -33,6 +33,11 @@ CREATE TABLE HoaDon (
     TongTien MONEY,
     NhanVien NVARCHAR(100)
 );
+
+ALTER TABLE HoaDon DROP CONSTRAINT PK_HoaDon;
+
+ALTER TABLE HoaDon
+ALTER COLUMN Ma INT IDENTITY(1,1);
 
 -- Tạo bảng HoaDonCT
 CREATE TABLE HoaDonCT (
@@ -148,6 +153,8 @@ VALUES
 (2, N'nv2', N'Nhân viên 2', N'abcdef', N'0123456789', N'Địa chỉ 2', N'987654321');
 
 -- Thêm dữ liệu vào bảng DaiLySanPham
+select * from DaiLy
+
 INSERT INTO DaiLySanPham (MaSanPham, MaDaiLy)
 VALUES 
 (N'SP001', 1),
@@ -159,7 +166,8 @@ INSERT INTO DaiLy (Ma, Ten, DiaChi, DienThoai)
 VALUES 
 (1, N'Đại lý A', N'Địa chỉ A', N'0987654321'),
 (2, N'Đại lý B', N'Địa chỉ B', N'0123456789');
-
+INSERT INTO DaiLy (Ma, Ten, DiaChi, DienThoai)
+VALUES (3, N'Đại lý C', N'Địa chỉ C', N'0123453389');
 -- Thêm dữ liệu vào bảng PhieuNhap
 INSERT INTO PhieuNhap (Ma, MaDaiLy, Ngay, TongTien)
 VALUES 
@@ -201,3 +209,29 @@ INSERT INTO NguoiDung VALUES (2, 'hung', 'abc', 2);
 UPDATE SanPham SET MaLoaiSanPham = 1 WHERE MaSP = 'SP001'
 UPDATE SanPham SET MaLoaiSanPham = 2 WHERE MaSP = 'SP002'
 UPDATE SanPham SET MaLoaiSanPham = 3 WHERE MaSP = 'SP003'
+
+select * from SanPham
+
+-- Add auto increase
+
+
+CREATE TABLE HoaDon (
+    Ma INT IDENTITY(1,1) PRIMARY KEY,
+    TenKH NVARCHAR(100),
+    Ngay DATE,
+    TongTien MONEY,
+    NhanVien NVARCHAR(100)
+);
+
+-- Tạo bảng HoaDonCT
+CREATE TABLE HoaDonCT (
+    MaHoaDon INT,
+    SanPham NVARCHAR(100),
+    SoLuong INT,
+    DonGia MONEY,
+    FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(Ma)
+);
+
+select * from HoaDon
+
+select * from HoaDonCT
