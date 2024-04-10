@@ -122,6 +122,25 @@ namespace GIAODIEN
             DisplayBanHang("BanHang", new frmBanHang(dssp) { Title = "BanHang" });
         }
 
+        private void SPHH_Click(object sender, RoutedEventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+            // Thực hiện các thao tác để lấy dữ liệu vào DataTable (ví dụ: query từ CSDL)
+
+            // Tạo instance của frmSanPhamHetHang và truyền DataTable vào
+            frmSanPhamHetHang frm = new frmSanPhamHetHang(dataTable);
+
+            // Hiển thị frmSanPhamHetHang
+            frm.Show();
+        }
+
+        private void dtThang_Click(object sender, RoutedEventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+            frmDoanhThu frm = new frmDoanhThu(dataTable);
+            frm.Show();
+        }
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             frmDangNhap frm = new frmDangNhap();
@@ -143,6 +162,9 @@ namespace GIAODIEN
 
                 mBanHang.IsEnabled = true;
                 mNhapHang.IsEnabled = true;
+
+                mSPHH.IsEnabled = true;
+                mdtThang.IsEnabled = true;
             };
             if (loai == 2)
             {
@@ -151,6 +173,9 @@ namespace GIAODIEN
 
                 mBanHang.IsEnabled = true;
                 mNhapHang.IsEnabled = false;
+
+                mSPHH.IsEnabled = false;
+                mdtThang.IsEnabled = false;
             };
 
         }
@@ -168,10 +193,23 @@ namespace GIAODIEN
             mBanHang.IsEnabled = false;
             mNhapHang.IsEnabled = false;
 
+            mSPHH.IsEnabled = false;
+            mdtThang.IsEnabled = false;
+
             while (mdiContainer.Items.Count > 0)
             {
                 mdiContainer.Items.RemoveAt(0);
             }
+        }
+
+        private void mdiContainer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

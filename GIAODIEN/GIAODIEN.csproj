@@ -66,11 +66,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmDoanhThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmKhuVuc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frmSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmSanPhamHetHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,11 +96,17 @@
     <Compile Include="frmDangNhap.xaml.cs">
       <DependentUpon>frmDangNhap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmDoanhThu.xaml.cs">
+      <DependentUpon>frmDoanhThu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmKhuVuc.xaml.cs">
       <DependentUpon>frmKhuVuc.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmSanPham.xaml.cs">
       <DependentUpon>frmSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmSanPhamHetHang.xaml.cs">
+      <DependentUpon>frmSanPhamHetHang.xaml</DependentUpon>
     </Compile>
     <Compile Include="LT_BANG.cs" />
     <Compile Include="MainWindow.xaml.cs">

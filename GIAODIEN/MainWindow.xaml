@@ -25,7 +25,11 @@
                 <MenuItem x:Name="mBanHang" Header="Ban hang" Click="BanHang_Click" IsEnabled="False"/>
                 <MenuItem x:Name="mNhapHang" Header="Nhap hang" IsEnabled="False"/>
             </MenuItem>
+            <MenuItem Header="Thong ke">
+                <MenuItem x:Name="mSPHH" Header="San pham het hang" Click="SPHH_Click" IsEnabled="False"/>
+                <MenuItem x:Name="mdtThang" Header="Doanh thu thang" Click="dtThang_Click" IsEnabled="False"/>
+            </MenuItem>
         </Menu>
-        <TabControl Grid.Row="1" Name="mdiContainer"/>
+        <TabControl Grid.Row="1" Name="mdiContainer" SelectionChanged="mdiContainer_SelectionChanged"/>
     </Grid>
 </Window>

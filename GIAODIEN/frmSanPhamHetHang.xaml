@@ -1,0 +1,15 @@
+﻿<Window x:Class="GIAODIEN.frmSanPhamHetHang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GIAODIEN"
+        mc:Ignorable="d"
+        Title="frmSanPhamHetHang" Height="450" Width="800">
+    <Grid Loaded="dgvSPHH_Loaded">
+        <DataGrid x:Name="dgvDSSanPhamHetHang" HorizontalAlignment="Left" Height="221" Margin="30,53,0,0" VerticalAlignment="Top" Width="541"
+                  IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False"/>
+        <Label Content="Danh sách sản phẩm hết hàng: " HorizontalAlignment="Left" Height="28" Margin="30,20,0,0" VerticalAlignment="Top" Width="182"/>
+
+    </Grid>
+</Window>

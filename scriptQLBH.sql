@@ -1,5 +1,5 @@
 ﻿CREATE DATABASE QLBH
-USE QLBH
+USE QuanLyBanHang
 
 -- Tạo bảng KhuVuc
 CREATE TABLE KhuVuc (
@@ -121,6 +121,8 @@ VALUES
 (N'SP001', N'Sản phẩm 1', N'Loại 1', 100, 50000, 1),
 (N'SP002', N'Sản phẩm 2', N'Loại 2', 200, 60000, 2),
 (N'SP003', N'Sản phẩm 3', N'Loại 1', 150, 70000, 1);
+
+select * from SanPham
 
 CREATE SEQUENCE SP_MaSP
 MINVALUE 1
