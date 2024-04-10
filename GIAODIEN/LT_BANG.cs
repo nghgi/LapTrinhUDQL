@@ -12,7 +12,7 @@ namespace GIAODIEN
     public class LT_BANG
     {
         //public static string Chuoi_ket_noi = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB\\QLNS.mdb";
-        public static string Chuoi_ket_noi = "Data Source=maytinh;Initial Catalog=QuanLyBanHang;Integrated Security=True;";
+        public static string Chuoi_ket_noi = "Data Source=Elod;Initial Catalog=QLBH;Integrated Security=True;";
 
         public static DataTable Doc(string Chuoi_lenh)
         {
