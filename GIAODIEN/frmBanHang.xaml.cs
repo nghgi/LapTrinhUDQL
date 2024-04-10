@@ -43,7 +43,7 @@ namespace GIAODIEN
 
         private void frmBanHang_Loaded(object sender, RoutedEventArgs e)
         {
-            //dssp = LT_BANG.Doc("Select * from SanPham, LoaiSanPham, KhuVuc where MaLoaiSanPham = LoaiSanPham.Ma and MaKhuVuc = KhuVuc.Ma");
+            dssp = LT_BANG.Doc("Select * from SanPham, LoaiSanPham where MaLoaiSanPham = LoaiSanPham.Ma");
 
             // Gán DataTable làm ItemsSource cho DataGrid
             dgDSSanPham.ItemsSource = dssp.DefaultView;
@@ -144,7 +144,7 @@ namespace GIAODIEN
                         spm = dsspm.NewRow();
 
                         spm["Ma"] = sp["Ma"];
-                        spm["Ten"] = sp["Ten"];
+                        spm["Ten"] = sp["TenSP"];
                         spm["SoLuong"] = soLuongMua;
                         spm["DonGia"] = sp["DonGia"];
                         spm["ThanhTien"] = soLuongMua * decimal.Parse(sp["DonGia"].ToString());
@@ -228,8 +228,15 @@ namespace GIAODIEN
             if (decimal.TryParse(tbTienKhach.Text, out tienkhach))
             {
                 if (tienkhach >= tongtien)
+                {
                     tbTienThoi.Text = (tienkhach - tongtien).ToString();
-                else tbTienThoi.Text = "0";
+                    btnThanhToan.IsEnabled = true;
+                }
+                else
+                {
+                    tbTienThoi.Text = "0";
+                    btnThanhToan.IsEnabled = false;
+                }
             }
             else
             {
@@ -247,14 +254,15 @@ namespace GIAODIEN
             DataTable dshd = LT_BANG.Doc_cau_truc("HoaDon");
             DataRow hd = dshd.NewRow();
 
+            hd["Ma"] = LT_BANG.LayMaxMa("HoaDon");
             hd["TenKH"] = tbTenKhachHang.Text;
             hd["Ngay"] = ngay.Text;
             hd["TongTien"] = tongtien;
             hd["NhanVien"] = tennv;
+            
 
             dshd.Rows.Add(hd);
             LT_BANG.Ghi(dshd, "HoaDon");
-
             // Thêm chi tiết hóa đơn vào bảng hóa đơn
 
             int mahd = int.Parse(hd["Ma"].ToString());
@@ -271,6 +279,8 @@ namespace GIAODIEN
             }
 
             LT_BANG.Ghi(dshdct, "HoaDonCT");
+            MessageBox.Show("Thanh toan thanh cong");
+
 
             dsspm.Rows.Clear();
         }

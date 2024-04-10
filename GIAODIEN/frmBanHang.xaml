@@ -39,7 +39,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <Label Content="Label1" Margin="10"/>
+                <Label Content="Tên Khách Hàng:" Margin="10"/>
                 <TextBox Width="100" Margin="10" x:Name="tbTenKhachHang"/>
                 <DatePicker x:Name="ngay"
                             VerticalAlignment="Center" HorizontalAlignment="Center"  
@@ -65,7 +65,8 @@
                 </StackPanel>
                 <Button x:Name="btnThanhToan" Click="btnThanhToan_Click"
                         Content="Thanh Toán" HorizontalAlignment="Right" VerticalAlignment="Center"
-                        Padding="3" Margin="0 0 20 0"/>
+                        Padding="3" Margin="0 0 20 0"
+                        IsEnabled="False"/>
             </StackPanel>
         </Grid>
     </Grid>

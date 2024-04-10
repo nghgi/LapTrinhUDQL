@@ -12,7 +12,7 @@ namespace GIAODIEN
     public class LT_BANG
     {
         //public static string Chuoi_ket_noi = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=DB\\QLNS.mdb";
-        public static string Chuoi_ket_noi = "Data Source=Elod;Initial Catalog=QLBH;Integrated Security=True;";
+        public static string Chuoi_ket_noi = "Data Source=QUANG-PC;Initial Catalog=QLBH;Integrated Security=True;";
 
         public static DataTable Doc(string Chuoi_lenh)
         {
@@ -54,6 +54,19 @@ namespace GIAODIEN
                 Kq = adapter.Update(Bang);
             }
             return Kq;
+        }
+
+        public static int LayMaxMa(string Ten_bang)
+        {
+            int Kq = 0;
+            string Chuoi_lenh = "SELECT MAX(Ma) FROM " + Ten_bang;
+            using (SqlConnection connection = new SqlConnection(Chuoi_ket_noi))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(Chuoi_lenh, connection);
+                Kq = (int)command.ExecuteScalar();
+            }
+            return Kq + 1;
         }
 
     }

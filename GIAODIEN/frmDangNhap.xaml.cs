@@ -42,6 +42,7 @@ namespace GIAODIEN
             if (dsnd.Rows.Count > 0 ) {
                 tendangnhap = dsnd.Rows[0]["TEN"].ToString();
                 loai = Convert.ToInt32(dsnd.Rows[0]["LOAI"]);
+                MessageBox.Show("Dang nhap thanh cong!");
                 Close(); 
             }
             else { MessageBox.Show("Ten dang nhap va mat khau khong chinh xac!"); }
