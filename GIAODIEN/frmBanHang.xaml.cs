@@ -239,8 +239,11 @@ namespace GIAODIEN
 
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)
         {
+            
+            // Cập nhập lại số lượng tồn
             LT_BANG.Ghi(dssp, "SanPham");
 
+            // Thêm hóa đơn vào bảng hóa đơn
             DataTable dshd = LT_BANG.Doc_cau_truc("HoaDon");
             DataRow hd = dshd.NewRow();
 
@@ -251,6 +254,8 @@ namespace GIAODIEN
 
             dshd.Rows.Add(hd);
             LT_BANG.Ghi(dshd, "HoaDon");
+
+            // Thêm chi tiết hóa đơn vào bảng hóa đơn
 
             int mahd = int.Parse(hd["Ma"].ToString());
             DataTable dshdct = LT_BANG.Doc_cau_truc("HoaDonCT");
